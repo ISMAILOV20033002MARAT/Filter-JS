@@ -1,64 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Mix_sin</title>
-	<link rel="stylesheet" type="text/css" href="css1/index.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css1/index.css">
+	<title>Document</title>
 </head>
 <body>
-
-
-<section>
 	
-   <ul>
-   	<li class="list active" data-filter="All">All</li>
-   	<li class="list" data-filter="Modile">Modile</li>
-   	<li class="list" data-filter="Camera">Camera</li>
-   	<li class="list" data-filter="Watch">Watch</li>
-   	<li class="list" data-filter="Shoe">Shoe</li>
-   	<li class="list" data-filter="Headepone">Headepone</li>
-   </ul>      
+	<section>
+	
+		<ul>
+			<li class="list active" data-filter="All">All</li>
+			<li class="list" data-filter="Modile">Modile</li>
+			<li class="list" data-filter="Camera">Camera</li>
+			<li class="list" data-filter="Watch">Watch</li>
+			<li class="list" data-filter="Shoe">Shoe</li>
+			<li class="list" data-filter="Headepone">Headepone</li>
+		</ul>      
+	 
+	 
+	 <div class="product">
+		 <div class="itemBox" data-item="Modile"><img src="foto1/gallery-1.jpg"></div>
+		 <div class="itemBox" data-item="Camera"><img src="foto1/gallery-2.jpg"></div>
+		 <div class="itemBox" data-item="Modile"><img src="foto1/gallery-3.jpg"></div>
+		 <div class="itemBox" data-item="Watch"><img src="foto1/gallery-4.jpg"></div>
+		 <div class="itemBox" data-item="Modile"><img src="foto1/gallery-5.jpg"></div>
+		 <div class="itemBox" data-item="Shoe"><img src="foto1/gallery-6.jpg"></div>
+		 <div class="itemBox" data-item="Modile"><img src="foto1/gallery-7.jpg"></div>
+		 <div class="itemBox" data-item="Headepone"><img src="foto1/gallery-8.jpg"></div>
+	 </div>
+	 
+	 </section>
+	 
+	 
+	 <script>
+		 let list = document.querySelectorAll('.list');
+		 let itemBox = document.querySelectorAll('.itemBox');
+	 
+		 for(let i = 0; i<list.length; i++){
+			 list[i].addEventListener('click',function(){
+				 for(let j = 0; j<list.length;j++){
+					 list[j].classList.remove('active');
+				 }
+				 this.classList.add('active');
+	 
+				 let dataFilter = this.getAttribute('data-filter');
+	 
+				 for(let k = 0;k<itemBox.length;k++){
+	 
+					 itemBox[k].classList.remove('active');
+					 itemBox[k].classList.add('hide');
+	 
+					 if (itemBox[k].getAttribute('data-item')==dataFilter || dataFilter =="All"){
+						 itemBox[k].classList.remove('hide');
+						 itemBox[k].classList.add('active');
+					 }
+				 }
+			 })
+		 };
+	 </script>
 
-
-<div class="product">
-	<div class="itemBox" data-item="Modile"><img src="foto1/gallery-1.jpg"></div>
-	<div class="itemBox" data-item="Camera"><img src="foto1/gallery-2.jpg"></div>
-	<div class="itemBox" data-item="Modile"><img src="foto1/gallery-3.jpg"></div>
-	<div class="itemBox" data-item="Watch"><img src="foto1/gallery-4.jpg"></div>
-	<div class="itemBox" data-item="Modile"><img src="foto1/gallery-5.jpg"></div>
-	<div class="itemBox" data-item="Shoe"><img src="foto1/gallery-6.jpg"></div>
-	<div class="itemBox" data-item="Modile"><img src="foto1/gallery-7.jpg"></div>
-	<div class="itemBox" data-item="Headepone"><img src="foto1/gallery-8.jpg"></div>
-</div>
-
-</section>
-
-
-<script>
-	let list = document.querySelectorAll('.list');
-	let itemBox = document.querySelectorAll('.itemBox');
-
-	for(let i = 0; i<list.length; i++){
-		list[i].addEventListener('click',function(){
-			for(let j = 0; j<list.length;j++){
-				list[j].classList.remove('active');
-			}
-			this.classList.add('active');
-
-			let dataFilter = this.getAttribute('data-filter');
-
-			for(let k = 0;k<itemBox.length;k++){
-
-				itemBox[k].classList.remove('active');
-				itemBox[k].classList.add('hide');
-
-				if (itemBox[k].getAttribute('data-item')==dataFilter || dataFilter =="All"){
-					itemBox[k].classList.remove('hide');
-					itemBox[k].classList.add('active');
-				}
-			}
-		})
-	};
-</script>
 </body>
 </html>
